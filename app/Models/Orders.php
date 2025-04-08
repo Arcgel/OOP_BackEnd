@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sales extends Model
+class Orders extends Model
 {
-    protected $table = 'Sales';
+    protected $table = 'Order';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'product_id',
-        'quantity_sold',
-        'total_price',
-        'sale_date'
+      'product_id',
+      'total_price',
+      'date'
     ];
 
     public function products(){
