@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('Itemcode')->on('products')->onDelete('cascade');
             $table->integer('quantity_sold');
             $table->decimal('total_price', 10, 2);
             $table->date('sale_date');
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_sales');
+        Schema::dropIfExists('sales');
     }
 };
